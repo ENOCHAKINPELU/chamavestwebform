@@ -1,0 +1,165 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+form {
+  background-color: #fff;
+  padding: 4rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin-top: 50rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#name {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+#email {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+#state {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+#savingsType {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+#groupName {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+}
+#lstate{
+  margin-bottom: 18px;
+}
+
+/* Adjust radio button positioning */
+input[type="radio"] {
+  margin-top: 4px;
+  margin-right: 0;
+}
+
+#button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+i{
+  color: red;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.hidden {
+  display: none;
+}
+h1 { 
+  text-align: center;
+}
+#g{
+  margin-top: 10px;
+}
+
+/* Media Queries for Responsive Design */
+@media only screen and (min-width: 600px) {
+  form {
+    width: 60%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  form {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  form {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  form {
+    width: 30%;
+  }
+}
