@@ -1,0 +1,166 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-items: center;
+}
+
+form {
+  background-color: #fff;
+  padding: 4rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 40%;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#name {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+#email {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+#state {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+#savingsType {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+#groupName {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 3rem;
+  width: 100%;
+}
+#lstate{
+  margin-bottom: 18px;
+}
+
+#button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+i{
+  color: red;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.hidden {
+  display: none;
+}
+h1 { 
+  text-align: center;
+}
+#g{
+  margin-top: 10px;
+}
+
+label{
+  font-weight: bold;
+}
+/* For Desktop View */
+@media screen and (min-width: 1024px) {
+  form{
+    width: 40%;
+    margin-left: 20rem;
+  }
+  
+}
+
+/* For Tablet View */
+@media screen and (min-device-width: 768px) 
+    and (max-device-width: 1024px) {
+    form{
+      width: 40%;
+      padding: 2rem;
+      margin-left: 1.3rem;
+    }
+    h1{
+      font-size: 1.5rem;
+    }
+    
+}
+
+ /* For Mobile Portrait View */
+ @media screen and (max-device-width: 480px) 
+ and (orientation: portrait) {
+  form{
+    width: 90%;
+    padding: 1.5rem;
+  }
+ }

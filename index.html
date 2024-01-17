@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/demo.css">
+  <link rel="stylesheet" href="css/intlTelInput.css">
+
+  <title>Chamavest - Data Collection Webform</title>
+  <meta name="description" content="Chamavest is more than just a savings platform; it's a movement towards inclusive financial growth. Born from the age-old concept of chamas, we've reimagined cooperative investment for the digital age, making it accessible, manageable, and secure for everyone, everywhere.">
+</head>
+<body>
+  <form id="dataForm">
+    <h1>Chamavest Data Collection Webform</h1>
+    <!-- Name -->
+    <label for="name">Nickname/Initial</label>
+    <input type="text" id="name" name="name">
+
+    <!-- Email -->
+    <label for="email">Email (optional)</label>
+    <input type="email" id="email" name="email">
+
+    <!-- Phone Number -->
+    <label for="phone">Phone Number (optional)</label>
+    <input type="tel" id="phone" name="phone">
+
+    <label for="gender" id="g">Gender</label>
+    <select id="gender" name="gender">
+      <option value="choose option" disabled selected hidden>Choose Option</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+
+    <label for="age">Age Group</label>
+    <select id="age" name="age">
+      <option value="0-19">18 - 30</option>
+      <option value="31-50">31 - 50</option>
+      <option value="31-50">51 and Above</option>
+    </select>
+
+
+    <label for="country">Country of Residence</label>
+        <select id="country" name="country" onchange="updateIncomeLevelOptions()">
+          <option value="choose option" disabled selected hidden>Choose Option</option>
+            <option value="USA">United States</option>
+            <option value="UK">United Kingdom</option>
+            <option value="Canada">Canada</option>
+            <option value="Nigeria">Nigeria</option>
+        </select>
+
+    <!-- Employment status-->
+    <div id="employmentStatus">
+      <label for="emp status">Employment status</label>
+      <select id="emp status" name="emp_status" required>
+        <option value="choose option" disabled selected hidden>Choose Option</option>
+        <option value="group">Employed</option>
+        <option value="daily">Self employed</option>
+        <option value="daily">Student</option>
+      </select>
+
+    <!-- Income Level-->
+    <div id="incomeLevel">
+      <label for="income_level">Income Level</label>
+      <select id="income_level" name="emp_status" required>
+        
+      </select>
+
+    <!-- Type of Savings -->
+    <div id="savingsTypeSection">
+      <label for="savingsType">Type of Savings</label>
+      <select id="savingsType" name="savingsType" required>
+        <option value="choose option" disabled selected hidden>Choose Option</option>
+        <option value="group">Group savings</option>
+        <option value="daily">Daily savings</option>
+      </select>
+
+      <!-- Group Savings Details -->
+      <div id="groupSavingsDetails" class="hidden">
+        <label for="groupName">Name of Group (optional)</label>
+        <input type="text" id="groupName" name="groupName">
+
+        <label for="groupSize">Number of Members in the Group</label>
+        <input type="number" id="groupSize" name="groupSize" min="1">
+
+        <label for="groupDuration">How long have you been in the group? (specify)</label>
+        <input type="text" id="groupDuration" name="groupDuration">
+      </div>
+    </div>
+
+    <!-- Frequency of Contribution -->
+    <label for="contributionFrequency">Select frequency of contribution</label>
+    <select id="contributionFrequency" name="contributionFrequency" onchange="showOtherField()">
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+      <option value="other">Others</option>
+    </select>
+
+    <div id="otherField" class="hidden">
+      <label for="otherFrequency">Specify other frequency</label>
+      <input type="text" id="otherFrequency" name="otherFrequency" required>
+    </div>
+
+    <!-- Currency of Contribution -->
+<label for="contributionCurrency">Select Currency Of Contribution <i>*</i></label>
+<select id="contributionCurrency" name ="contributionCurrency" required>
+  <!-- Currencies will be dynamically added here using JavaScript -->
+</select>
+
+<label for="contributionAmount">Contribution Amount <i>*</i></label>
+<input type="text" id="contributionAmount" name="contributionAmount" required>
+
+    <!-- Payment Method -->
+    <label for="paymentMethod">How do you make your payment <i>*</i></label>
+    <select id="paymentMethod" name="paymentMethod" onchange="showOtherField()" required>
+      <option value="cash">Cash payment</option>
+      <option value="transfer">Transfer Payment</option>
+      <option value="other">Others</option>
+    </select>
+
+    <div id="otherField" class="hidden">
+      <label for="otherOption">Specify other payment method</label>
+      <input type="text" id="otherOption" name="otherOption" required>
+    </div>
+    <!-- Submit Button -->
+    <button type="submit" id="button">Submit</button>
+
+  </form>
+  <script src="js/intlTelInput.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var savingsTypeSelect = document.getElementById("savingsType");
+    var groupSavingsDetails = document.getElementById("groupSavingsDetails");
+    var otherFrequencyForm = document.getElementById("otherFrequencyForm");
+    var otherPaymentMethodForm = document.getElementById("otherPaymentMethodForm");
+    var input = document.querySelector('#phone');
+
+    window.intlTelInput(input, {});
+
+    savingsTypeSelect.addEventListener("change", function () {
+      var selectedValue = savingsTypeSelect.value;
+
+      if (selectedValue === "group") {
+        groupSavingsDetails.classList.remove("hidden");
+        otherFrequencyForm.classList.add("hidden");
+        otherPaymentMethodForm.classList.add("hidden");
+      } 
+      
+      else if (selectedValue === "daily") {
+        groupSavingsDetails.classList.add("hidden");
+        otherFrequencyForm.classList.remove("hidden");
+        otherPaymentMethodForm.classList.remove("hidden");
+      }
+    });
+    
+  });
+  const currencies = ["USD", "EUR", "NGN", "British Sterling Pounds"];
+
+  // Get the select element by its id
+  const selectElement = document.getElementById("contributionCurrency");
+
+  // Loop through the currencies array and create an option element for each currency
+  currencies.forEach(currency => {
+    const optionElement = document.createElement("option");
+    optionElement.value = currency;
+    optionElement.text = currency;
+    selectElement.appendChild(optionElement);
+  });
+</script>
+
+ <script>
+        function updateIncomeLevelOptions() {
+            const countrySelect = document.getElementById('country');
+            const incomeLevelSelect = document.getElementById('income_level');
+            const selectedCountry = countrySelect.value;
+
+            // Clear existing options
+            incomeLevelSelect.innerHTML = '';
+
+            // Add options based on the selected country
+            if (selectedCountry === 'Nigeria') {
+                addOption(incomeLevelSelect, 'Lower (₦5000 - ₦29000)', 'lower');
+                addOption(incomeLevelSelect, 'Middle (₦30000 - ₦150000)', 'middle');
+                addOption(incomeLevelSelect, 'Upper (Above ₦150000)', 'upper');
+                addCurrencyIcon('NGN');
+            } else if (selectedCountry === 'USA') {
+                addOption(incomeLevelSelect, 'Lower ($300 - $600)', 'lower');
+                addOption(incomeLevelSelect, 'Middle ($650 - $1000)', 'middle');
+                addOption(incomeLevelSelect, 'Upper (Above $1000)', 'upper');
+                addCurrencyIcon('USD');
+            } else if (selectedCountry === 'UK') {
+                addOption(incomeLevelSelect, 'Lower (£200 - £400)', 'lower');
+                addOption(incomeLevelSelect, 'Middle (£450 - £800)', 'middle');
+                addOption(incomeLevelSelect, 'Upper (Above £800)', 'upper');
+                addCurrencyIcon('GBP');
+            } else if (selectedCountry === 'Canada') {
+                addOption(incomeLevelSelect, 'Lower (CA$400 - CA$800)', 'lower');
+                addOption(incomeLevelSelect, 'Middle (CA$850 - CA$1200)', 'middle');
+                addOption(incomeLevelSelect, 'Upper (Above CA$1200)', 'upper');
+                addCurrencyIcon('CAD');
+            }
+        }
+        function addOption(selectElement, label, value) {
+            const option = document.createElement('option');
+            option.textContent = label;
+            option.value = value;
+            selectElement.appendChild(option);
+        }
+    </script>
+
+<script>
+  function showOtherField() {
+    var paymentMethodDropdown = document.getElementById("paymentMethod");
+    var otherField = document.getElementById("otherField");
+
+    if (paymentMethodDropdown.value === "other") {
+      otherField.style.display = "block";
+    } else {
+      otherField.style.display = "none";
+    }
+  }
+
+  document.getElementById("paymentForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Add your logic for form submission here
+
+    // For demonstration, we'll log the selected option or the entered text
+    var selectedPaymentMethod = document.getElementById("paymentMethod").value;
+    var otherPaymentMethod = document.getElementById("otherOption").value;
+
+    console.log("Payment Method: " + (selectedPaymentMethod === "other" ? otherPaymentMethod : selectedPaymentMethod));
+  });
+</script>
+<script>
+  function showOtherField() {
+    var frequencyDropdown = document.getElementById("contributionFrequency");
+    var otherField = document.getElementById("otherField");
+
+    if (frequencyDropdown.value === "other") {
+      otherField.style.display = "block";
+    } else {
+      otherField.style.display = "none";
+    }
+  }
+</script>
+</body>
+</html>
